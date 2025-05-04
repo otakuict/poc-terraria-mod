@@ -1,0 +1,36 @@
+# Build artifacts
+bin/
+obj/
+*.tmod
+
+# VS and tModLoader generated files
+*.user
+*.suo
+*.userprefs
+*.csproj.user
+*.cache
+*.db
+
+# NuGet
+packages/
+project.assets.json
+project.nuget.cache
+project.lock.json
+*.nupkg
+
+# VS Code settings
+.vscode/
+
+# Temp/backup
+*.tmp
+*.bak
+*.old
+*.log
+
+# Localization binary files (if any)
+Localization/**/*.bin
+
+# OS-specific
+.DS_Store
+Thumbs.db
+*.swp
