@@ -17,13 +17,12 @@ namespace test01.Contents.NPCs
         {
             NPC.width = 18;
             NPC.height = 40;
-            NPC.aiStyle = -1; // ไม่มี AI
+            NPC.aiStyle = -1;
             NPC.friendly = true;
             NPC.townNPC = true;
             NPC.dontTakeDamage = true;
             NPC.lifeMax = 250;
             NPC.knockBackResist = 0f;
-            NPC.homeless = false;
         }
 
         public override string GetChat()
@@ -42,13 +41,13 @@ namespace test01.Contents.NPCs
         {
             if (firstButton && Main.LocalPlayer.whoAmI == Main.myPlayer)
             {
-                ModContent.GetInstance<test01>().OpenConfigUI();
+                ModContent.GetInstance<UIManagerSystem>().ShowUI();
             }
         }
 
         public override void AI()
         {
-            NPC.velocity = Vector2.Zero; // ยืนอยู่กับที่
+            NPC.velocity = Vector2.Zero;
         }
     }
 }

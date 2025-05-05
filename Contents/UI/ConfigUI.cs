@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.Audio; // เพิ่มการใช้ SoundEngine
 using Terraria.ID;
+using System;
 
 namespace test01.UI
 {
@@ -82,11 +83,8 @@ namespace test01.UI
 
         private void CloseUI(UIMouseEvent evt, UIElement listeningElement)
         {
-            // ลบ UI นี้ออกจากหน้าจอ
-            this.Remove();
+            Console.WriteLine("Close button clicked!");
 
-            // เล่นเสียงปิดเมนู
-            SoundEngine.PlaySound(SoundID.MenuClose);
         }
     }
 }
