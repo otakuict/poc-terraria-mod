@@ -1,3 +1,3 @@
-displayName = no-name
-author = otakuict
+displayName = lnwza007
+author = guaeng
 version = 0.1

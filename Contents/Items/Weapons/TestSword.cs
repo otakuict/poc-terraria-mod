@@ -1,13 +1,14 @@
-using Microsoft.Xna.Framework ;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-
 namespace test01.Contents.Items.Weapons
 {
-    public class TestSword : ModItem {
-      public override void SetDefaults() {
+	public class TestSword : ModItem
+	{
+		public override void SetDefaults()
+		{
 			Item.width = 40; // The item texture's width.
 			Item.height = 40; // The item texture's height.
 
@@ -17,7 +18,7 @@ namespace test01.Contents.Items.Weapons
 			Item.autoReuse = true; // Whether the weapon can be used more than once automatically by holding the use button.
 
 			Item.DamageType = DamageClass.Melee; // Whether your item is part of the melee class.
-			Item.damage = 50; // The damage your item deals.
+			Item.damage = 400; // The damage your item deals.
 			Item.knockBack = 6; // The force of knockback of the weapon. Maximum is 20
 			Item.crit = 6; // The critical strike chance the weapon has. The player, by default, has a 4% critical strike chance.
 
@@ -25,11 +26,26 @@ namespace test01.Contents.Items.Weapons
 			Item.rare = ItemRarityID.Master;
 			Item.UseSound = SoundID.Item1; // The sound when the weapon is being used.
 		}
-  	public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.Wood, 1); // Requires 1 wood to craft.
+			recipe.AddTile(TileID.Furnaces); // Requires a workbench to craft.
+			recipe.Register();
+		}
+
+		public override void HoldItem(Player player)
+		{
+			Vector2 direction = Main.MouseWorld - player.Center;
+			player.direction = direction.X > 0 ? 1 : -1;
+		}
+
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
+		{
 			// Inflict the OnFire debuff for 1 second onto any NPC/Monster that this hits.
 			// 60 frames = 1 second
 			target.AddBuff(BuffID.OnFire, 60);
 		}
-    }
-    
- }
+	}
+}
